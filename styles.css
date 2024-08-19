@@ -9,6 +9,8 @@ body {
     overflow-x: hidden;
     margin-top: 80px; /* Add top margin equal to the navbar height */
     box-sizing: border-box; /* Ensure padding is included in the width */
+    transition: background-image 0.3s ease-in-out;
+
 }
 
 html {
@@ -50,6 +52,25 @@ header h1 {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* Fullscreen background image */
+.fullscreen-bg {
+    position: fixed; /* Fixed positioning to stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind the content */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* No repeat */
+}
+
+.fullscreen-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Navigation-Stile */
@@ -126,9 +147,8 @@ nav p {
     font-size: 20px;
 }
 
-/* Mobile Navigation */
 #mobile-nav-button {
-    display: none; /* Hide by default */
+    display: none;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -139,7 +159,7 @@ nav p {
 }
 
 #mobile-nav {
-    display: none; /* Hide by default */
+    display: none;
     flex-direction: column;
     gap: 10px;
     padding: 20px;
@@ -148,18 +168,10 @@ nav p {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#mobile-nav a {
-    color: rgba(0, 0, 0, 0.8);
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px 0;
-    transition: color 0.3s ease;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     .nav-center, .nav-right {
-        display: none; /* Hide the center and right navigation links */
+        display: none; /* Hide center and right navigation links */
     }
 
     #mobile-nav-button {
@@ -167,7 +179,7 @@ nav p {
     }
     
     #mobile-nav.open {
-        display: flex; /* Show mobile navigation when open */
+        display: flex; /* Show mobile navigation menu when open */
     }
 }
 
@@ -176,11 +188,47 @@ main {
     padding: 20px;
 }
 
-main h1, main h2 {
+main h1 {
     font-size: 48px;
     margin-bottom: 10px;
     margin-top: 0;
     color: #333333;
+}
+
+main h2 {
+    font-size: 24px; /* Smaller than h1 but still prominent */
+    margin-top: 0;
+    margin-bottom: 20px; /* Space below the subtitle */
+    color: #666666; /* A lighter color than the primary heading */
+    font-weight: 400; /* Regular weight, not too bold */
+    line-height: 1.4; /* Slightly increased line height for readability */
+}
+
+/* Standard text style */
+p, ul, ol {
+    font-size: 16px; /* Comfortable size for readability */
+    line-height: 1.6; /* Ensures good readability */
+    color: #333333; /* Dark enough for good contrast and readability */
+    font-weight: 400; /* Regular weight for body text */
+    margin: 0 0 20px; /* Consistent spacing below paragraphs */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Apple-like system fonts */
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 20px; /* Indent for list items */
+}
+
+/* Links */
+a {
+    color: #007aff; /* Apple blue or a similar accent color */
+    text-decoration: none; /* Remove underline by default */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+a:hover, a:focus {
+    color: #0051a2; /* Darker shade of the accent color for hover/focus */
+    text-decoration: underline; /* Add underline on hover/focus */
 }
 
 section {
@@ -202,15 +250,19 @@ section {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     margin: 20px;
+Margin-bottom: 60px;
     padding: 40px;
     opacity: 0;
     min-height: 500px;
-    transition: opacity 3s ease-out;
+    transition: opacity 3s ease-out, background-image 0.3s ease-in-out; /* Ensure smooth transition for background image */
+
 }
 
 .section-with-bg.visible {
     opacity: 1;
 }
+
+
 
 .intro-section {
     display: flex;
@@ -305,21 +357,7 @@ section {
     transform: scale(1.1);
 }
 
-/* Fullscreen background image */
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
 
-.fullscreen-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* Footer-Stile */
 footer {
