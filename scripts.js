@@ -55,3 +55,9 @@ function smoothScroll(distance, duration) {
 
     requestAnimationFrame(scroll);
 }
+
+
+document.getElementById('mobile-nav-button').addEventListener('click', function() {
+    const mobileNav = document.getElementById('mobile-nav');
+    mobileNav.classList.toggle('open');
+});
