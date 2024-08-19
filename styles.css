@@ -1,0 +1,316 @@
+/* Grundlegende Stile für die gesamte Website */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #666666 ; /* Dark gray for text */    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #F7F7F7;
+    overflow-x: hidden;
+    margin-top: 80px; /* Add left margin equal to the navbar width */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header-Stile */
+header {
+    background-color: #F000000;
+    color: white;
+    padding: 20px 0;
+    text-align: left;
+}
+
+header img {
+    max-width: auto; /* Ensure the image scales with the header */
+    height: 50%;    /* Maintain the aspect ratio of the image */
+    display: block;  /* Remove any extra space below the image */
+    margin: 0 auto;  /* Center the image */
+}
+
+header h1 {
+    font-size: 2em;
+    color: #333; /* Dark gray color for the text */
+}
+
+/* Full-width image container */
+.full-width-image {
+    width: 80%; /* Set the width to 80% of the viewport */
+    max-width: 1200px; /* Optional: Set a max-width for larger screens */
+    margin: 0 auto; /* Center the container horizontally */
+    position: relative; /* Establish stacking context if needed */
+    z-index: 1; /* Ensure it is below other elements with higher z-index */
+    margin-top: 10px; /* Adjust based on the height of the navigation bar */
+    Margin-bottom: 40px;
+    Margin-top: 40px;
+}
+
+.full-width-image img {
+    width: 100%; /* Make the image fill the container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any bottom space caused by inline image */
+}
+
+/* Navigation-Stile */
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect for elements behind the nav */
+    padding: 20px 10px;
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); /* Subtle bottom border */
+}
+
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    color: rgba(0, 0, 0, 0.8); /* Slightly transparent black for text */
+    text-decoration: none;
+    font-size: 20px;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    font-weight: 500; /* Medium weight for better visibility */
+}
+
+.nav-center {
+ display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+
+.nav-link {
+    color: rgba(0, 0, 0, 0.8); /* Slightly transparent black for text */
+    text-decoration: none;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.nav-link.active {
+    font-weight: 700; /* Medium weight for active link */
+    color: rgba(0, 0, 0, 1); /* Fully opaque for active link */
+}
+
+.nav-link:hover {
+    color: rgba(0, 0, 0, 1); /* Fully opaque on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+.nav-right a {
+    margin-left: 10px; /* Space between social icons */
+}
+
+.nav-right img {
+    width: 24px;  /* Adjust the size of the icons as needed */
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;  /* Aligns the icons vertically in the middle */
+    margin-left: 15px;  /* Space between the social media icons */
+}
+
+
+
+
+nav p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+
+
+
+/* Main-Content-Stile */
+main {
+    padding: 20px;
+}
+
+Main h1 {
+    font-size: 48px;
+    Margin-bottom: 10px;
+    Margin-top: 0px;
+    color: #333333
+}
+
+
+Main h2 {
+    font-size: 48px;
+    Margin-bottom: 10px;
+    Margin-top: 0px;
+    color: #333333
+}
+
+section {
+    scroll-margin-top: 60px; /* Adjust this value based on your navigation bar height */
+}
+
+#contact {
+    padding: 30px 20px; /* Reduced padding for the contact section */
+    min-height: 20vh;   /* Reduced height for the contact section */
+    background-color: #c0c0c0;
+}
+#contact h1 {
+Margin-bottom: 40px;
+}
+
+.section-with-bg {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect for elements behind the nav */
+    border-radius: 10px;
+    margin: 20px;
+    padding: 40px;
+    opacity: 0; /* Initially invisible */
+    min-height: 500px;
+    transition: opacity 3s ease-out; /* Smooth transition for opacity */
+}
+
+.section-with-bg.visible {
+    opacity: 1; /* Fully visible when .visible class is added */
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    justify-content: center; /* Centers the text and button vertically */
+    align-items: center; /* Centers the text and button horizontally */
+    height: 80vh; /* Sets the height of the section */
+    text-align: center;
+}
+
+.intro-section h1 {
+    font-size: 56px; /* Large text size */
+    font-weight: bold; /* Bold text */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Adds contrast */
+    margin-bottom: 20px; /* Space between text and button */
+    color: white;;
+}
+
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px; /* Ensures there's space between text and button */
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: 2px solid white; /* White border */
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: white; /* White background on hover */
+    color: #000; /* Black text on hover */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.text-block {
+    flex: 1;
+    max-width: 45%;
+}
+
+.text-block-right {
+    flex: 1;
+    max-width: 45%;
+    background-color: #f0f0f0; /* Background color for visibility */
+    padding: 20px; /* Padding inside the text block */
+    border-radius: 5px; /* Rounded corners */
+    
+}
+
+.html-widget {
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    align-items: flex-start; /* Align the iframe at the top */
+    justify-content: flex-end; /* Align the widget to the right */
+    position: relative;
+}
+
+.responsive-iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Ensure a square aspect ratio */
+    border: none;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    align-items: center; /* Aligns icons vertically if they have different sizes */
+}
+
+.social-links a {
+    display: inline-block;
+}
+
+.social-links img {
+    width: 36px; /* Standard size for icons */
+    height: 36px;
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.social-links img:hover {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Fullscreen background image */
+.fullscreen-bg {
+    position: fixed; /* Keeps the image fixed in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Sends it behind the scrolling content */
+}
+
+.fullscreen-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire area */
+}
+
+
+
+/* Footer-Stile */
+footer {
+    background-color: #F000000;
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    
+    bottom: 0;
+    width: 100%;
+}
