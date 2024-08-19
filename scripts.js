@@ -29,7 +29,7 @@ document.querySelectorAll('.section-to-animate').forEach(section => {
 });
 
 document.getElementById("scrollButton").addEventListener("click", function() {
-    smoothScroll(600, 2000); // Scroll 1000px over 2 seconds
+    smoothScroll(600, 2000); // Scroll 600px over 2 seconds
 });
 
 function smoothScroll(distance, duration) {
@@ -54,10 +54,14 @@ function smoothScroll(distance, duration) {
     }
 
     requestAnimationFrame(scroll);
-}
+};
 
 
 document.getElementById('mobile-nav-button').addEventListener('click', function() {
     const mobileNav = document.getElementById('mobile-nav');
-    mobileNav.classList.toggle('open');
+    if (mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+    } else {
+        mobileNav.classList.add('open');
+    }
 });
