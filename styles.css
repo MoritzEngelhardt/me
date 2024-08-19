@@ -147,8 +147,9 @@ nav p {
     font-size: 20px;
 }
 
+/* Navigation button and dropdown menu styles */
 #mobile-nav-button {
-    display: none;
+    display: none; /* Hidden by default */
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -159,7 +160,7 @@ nav p {
 }
 
 #mobile-nav {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
     gap: 10px;
     padding: 20px;
@@ -167,25 +168,65 @@ nav p {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: 80px; /* Adjust based on your navbar height */
-    right: 0;
-    z-index: 1000; /* Ensure it appears above other content */
+    top: 80px; /* Adjust this value according to your header height */
+    right: 10px; /* Position it correctly */
+    width: calc(100% - 20px); /* Full width minus padding */
 }
 
-/* Responsive Styles */
+/* Mobile Navigation Menu */
+/* Burger Menu */
+#burger-menu {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+}
+
+.burger-bar {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin: 6px 0;
+}
+
+/* Sidebar Menu */
+#sidebar-menu {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 80px; /* Below the navbar */
+    left: 0;
+    width: 250px; /* Adjust as needed */
+    height: calc(100% - 80px); /* Full height minus navbar height */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Ensure it's above other content */
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+#sidebar-menu.open {
+    display: flex; /* Change to flex when open */
+    flex-direction: column; /* Stack items vertically */
+}
+
+#sidebar-menu a {
+    padding: 10px 0; /* Add some vertical spacing between items */
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
+
+/* Hide nav-center and nav-right on mobile */
 @media (max-width: 768px) {
-    .nav-center, .nav-right {
-        display: none; /* Hide center and right navigation links */
+    .nav-center, .nav-right, .nav-left {
+        display: none; /* Hide all navigation items */
     }
 
-    #mobile-nav-button {
-        display: block; /* Show mobile navigation button */
-    }
-    
-    #mobile-nav.open {
-        display: flex; /* Show mobile navigation menu when open */
+    #burger-menu {
+        display: block; /* Show burger menu icon on mobile */
     }
 }
+
+
 
 
 /* Main-Content-Stile */
@@ -372,6 +413,10 @@ footer {
     padding: 10px 0;
     bottom: 0;
     width: 100%;
+}
+
+Footer p {
+Color: white;
 }
 
 /* Responsive Design: Media Queries */

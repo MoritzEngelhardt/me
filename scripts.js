@@ -2,14 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navigation Active Link
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
-    
+
     function setActiveLink() {
         let index = sections.length;
 
         while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
 
         navLinks.forEach((link) => link.classList.remove('active'));
-        navLinks[index].classList.add('active');
+        if (navLinks[index]) {
+            navLinks[index].classList.add('active');
+        }
     }
 
     window.addEventListener('scroll', setActiveLink);
@@ -17,23 +19,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Intersection Observer for Animation
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.section-to-animate').forEach(section => {
-      observer.observe(section);
+        observer.observe(section);
     });
 
     // Mobile Navigation Toggle
-    document.getElementById('mobile-nav-button').addEventListener('click', function() {
-        const mobileNav = document.getElementById('mobile-nav');
-        mobileNav.classList.toggle('open');
+    document.getElementById('burger-menu').addEventListener('click', function() {
+        const sidebarMenu = document.getElementById('sidebar-menu');
+        sidebarMenu.classList.toggle('open'); // Toggle the visibility of the sidebar menu
     });
 
+    // Close sidebar menu when a link is clicked
+    document.querySelectorAll('#sidebar-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('sidebar-menu').classList.remove('open');
+        });
+    });
 
     // Smooth Scrolling for Anchor Links
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
@@ -63,7 +71,7 @@ function smoothScroll(target, duration) {
         const timeElapsed = currentTime - startTime;
         const progress = Math.min(timeElapsed / duration, 1); // Ensure the progress does not exceed 1
         const easing = easeInOutQuad(progress);
-        window.scrollTo(0, start + (targetPosition-100 - start) * easing);
+        window.scrollTo(0, start + (targetPosition - 100 - start) * easing);
 
         if (progress < 1) {
             requestAnimationFrame(scroll);
@@ -76,3 +84,4 @@ function smoothScroll(target, duration) {
 
     requestAnimationFrame(scroll);
 }
+
